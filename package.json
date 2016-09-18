@@ -1,0 +1,19 @@
+{
+  "name": "java-parses-test",
+  "version": "0.0.1",
+  "description": "A test for java-parser to see if it can compile .pde source code (which uses Java syntax) into active JavaScript.",
+  "main": "testAST.js",
+  "scripts": {
+    "clean": "shx touch test.pde && shx rm test.pde",
+    "build": "shx cat wrapper/header.pde test/*.pde wrapper/footer.pde > test.pde",
+    "parse": "java-parser test.pde > AST.json",
+    "load": "node testAST.js",
+    "test": "npm i && run-s clean build parse clean load"
+  },
+  "author": "Pomax",
+  "license": "PD",
+  "dependencies": {
+    "java-parser": "0.0.1",
+    "shx": "^0.1.4"
+  }
+}
