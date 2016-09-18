@@ -5,7 +5,7 @@
   "main": "testAST.js",
   "scripts": {
     "clean": "shx touch test.pde && shx rm test.pde",
-    "build": "shx cat wrapper/header.pde test/*.pde wrapper/footer.pde > test.pde",
+    "build": "shx cat wrapper/header.pde bsplinetest/*.pde wrapper/footer.pde > test.pde",
     "parse": "java-parser test.pde > AST.json",
     "load": "node testAST.js",
     "test": "npm i && run-s clean build parse clean load"
